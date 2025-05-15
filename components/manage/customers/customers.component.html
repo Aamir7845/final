@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <h2>Manage Customers</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <ng-container *ngFor="let user of users">
+            <tr *ngIf="!(user.name === 'admin' && user.email === 'admin@test.com')">
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <button mat-button color="warn" (click)="deleteUser(user.email)">Delete</button>
+                </td>
+            </tr>
+        </ng-container>
+    </table>
+</div>
+<!--not displaying admin -->
